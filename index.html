@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>John Doe — Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Basic, optional styles just to make the structure readable. Remove if you’ll use your own CSS. -->
+  <style>
+    :root {
+      --maxw: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    header.site-header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(6px);
+      background: #ffffffcc;
+      border-bottom: 1px solid #eee;
+      z-index: 10;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .75rem 0;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: .3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      padding: .5rem .75rem;
+      border-radius: .5rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus {
+      background: #f3f4f6;
+    }
+
+    main section {
+      padding: 4rem 0;
+      border-bottom: 1px solid #f1f1f1;
+    }
+
+    h1,
+    h2 {
+      line-height: 1.2;
+      margin: 0 0 .5rem;
+    }
+
+    .hero {
+      display: grid;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    /* Simple responsive tweaks */
+    @media (min-width: 768px) {
+      .hero {
+        grid-template-columns: 1.2fr 1fr;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .card {
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 1rem;
+    }
+
+    footer {
+      padding: 2rem 0;
+      text-align: center;
+      color: #6b7280;
+    }
+
+    /* Accessibility helpers */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .skip-link:focus {
+      position: static;
+      width: auto;
+      height: auto;
+      padding: .5rem .75rem;
+      background: #111;
+      color: #fff;
+      border-radius: .5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Skip to content for keyboard/screen-reader users -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Header / Navigation -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <nav aria-label="Primary">
+        <div class="brand">John Doe</div>
+        <div class="nav-links" role="menubar">
+          <a role="menuitem" href="#home">Home</a>
+          <a role="menuitem" href="#about">About</a>
+          <a role="menuitem" href="#portfolio">Portfolio</a>
+          <a role="menuitem" href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main" tabindex="-1">
+    <!-- Home / Hero -->
+    <section id="home" aria-labelledby="home-title">
+      <div class="container hero">
+        <div>
+          <h1 id="home-title">Hi, I’m John — Web Developer</h1>
+          <p>I build fast, accessible websites and web apps. Scroll to see my work and get in touch.</p>
+          <!-- Call-to-action buttons (optional) -->
+          <p>
+            <a href="#portfolio">View Portfolio</a> ·
+            <a href="#contact">Contact Me</a>
+          </p>
+        </div>
+        <div class="card" aria-hidden="true">
+          <!-- Placeholder for a profile image or illustration -->
+          <div style="height: 220px; display:flex; align-items:center; justify-content:center; color:#9ca3af;">
+            (Add your image here)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" aria-labelledby="about-title">
+      <div class="container grid">
+        <header>
+          <h2 id="about-title">About</h2>
+          <p class="subtitle">A short intro about who you are and what you do.</p>
+        </header>
+        <article>
+          <p>
+            I’m a front-end developer specializing in modern, responsive interfaces.
+            I enjoy creating clean UX with performance and accessibility in mind.
+          </p>
+          <ul>
+            <li><strong>Skills:</strong> HTML, CSS, JavaScript, React</li>
+            <li><strong>Tools:</strong> Git, Figma, Vite, Webpack</li>
+            <li><strong>Location:</strong> Your City, Country</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" aria-labelledby="portfolio-title">
+      <div class="container">
+        <h2 id="portfolio-title">Portfolio</h2>
+        <p>Selected projects. Replace placeholders with your real work.</p>
+
+        <div class="grid portfolio-grid" role="list">
+          <!-- Project Card 1 -->
+          <article class="card" role="listitem">
+            <h3>Project One</h3>
+            <p>Short description of what it is, who it’s for, and your role.</p>
+            <p>
+              <a href="#" aria-label="View live demo of Project One">Live</a> ·
+              <a href="#" aria-label="View source code of Project One on GitHub">Code</a>
+            </p>
+          </article>
+
+          <!-- Project Card 2 -->
+          <article class="card" role="listitem">
+            <h3>Project Two</h3>
+            <p>Short description highlighting tech stack and outcomes.</p>
+            <p>
+              <a href="#">Live</a> · <a href="#">Code</a>
+            </p>
+          </article>
+
+          <!-- Project Card 3 -->
+          <article class="card" role="listitem">
+            <h3>Project Three</h3>
+            <p>Short description with any metrics or results if available.</p>
+            <p>
+              <a href="#">Live</a> · <a href="#">Code</a>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="container grid">
+        <header>
+          <h2 id="contact-title">Contact</h2>
+          <p>Want to collaborate or have a project in mind? Let’s talk.</p>
+        </header>
+
+        <!-- Simple contact form (non-functional without backend) -->
+        <form class="card" action="#" method="post" aria-label="Contact form">
+          <label>
+            Name
+            <input type="text" name="name" placeholder="Your name" required />
+          </label>
+          <br />
+          <label>
+            Email
+            <input type="email" name="email" placeholder="you@example.com" required />
+          </label>
+          <br />
+          <label>
+            Message
+            <textarea name="message" rows="5" placeholder="How can I help?" required></textarea>
+          </label>
+          <br />
+          <button type="submit">Send Message</button>
+          <!-- Tip: Replace action with your backend endpoint or a service like Formspree -->
+        </form>
+
+        <!-- Direct links (optional) -->
+        <div>
+          <p><strong>Email:</strong> <a href="mailto:hello@example.com">hello@example.com</a></p>
+          <p><strong>LinkedIn:</strong> <a href="#" rel="me">linkedin.com/in/your-handle</a></p>
+          <p><strong>GitHub:</strong> <a href="#" rel="me">github.com/your-handle</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div class="container">
+      © <span id="year"></span> John Doe. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Small enhancement: current year + smooth in-page nav -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Smooth scroll for same-page links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if (el) {
+          e.preventDefault();
+          el.scrollIntoView({behavior: 'smooth'});
+          el.focus({preventScroll: true});
+        }
+      });
+    });
+  </script>
+  <button id="backToTop" title="Go to top">↑</button>
+  <script src="script.js"></script>
+
+</body>
+
+</html>
